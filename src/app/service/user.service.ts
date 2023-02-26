@@ -19,4 +19,9 @@ getUser(): Observable<User>
   return this.http.get<User>('https://jsonplaceholder.typicode.com/users/1')
 }
 
+deleteUser(): Observable<User> 
+{
+  return this.http.delete<User>('https://jsonplaceholder.typicode.com/users/1')
+}
+
 }

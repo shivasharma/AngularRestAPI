@@ -20,13 +20,18 @@ export class AppComponent {
  onGetUsers():void{
   this.userSerivce.getUsers().subscribe((users)=>{
     this.listofusers=users
+    console.table(this.listofusers);
   });
  }
 
  onGetUser():void{
   this.userSerivce.getUser().subscribe((user)=>{
     this.singleuser=user
+    console.table(this.singleuser);
   });
  }
 
+ reset():void{
+  window.location.reload();
+ }
 }
