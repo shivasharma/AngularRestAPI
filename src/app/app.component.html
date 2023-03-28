@@ -19,6 +19,26 @@
         <button class="btn btn-primary btn-lg" type="button" (click)="reset()">Reset</button>
       </div>
       <pre>{{singleuser | json}}</pre>
+
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>City</th>
+         
+        </tr>
+        <tr>
+          <td>{{singleuser.id}}</td>
+          <td>{{singleuser.name}}</td>
+          <td>{{singleuser.email}}</td>
+          <td>{{singleuser.address.city}}</td>
+        
+        </tr>
+      </table>
+
+
+
       <table class="table table-striped">
         <tr>
           <th>ID</th>
