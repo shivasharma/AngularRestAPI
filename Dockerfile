@@ -7,4 +7,3 @@ CMD ["npm", "run","prod"]
 
 # stage 2
 FROM nginx:alpine
-COPY --from=node /AngularRestAPI/dist/angularrestapi /usr/share/nginx/html
