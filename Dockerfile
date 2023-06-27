@@ -1,15 +1,14 @@
-# stage 2
-FROM node:latest as node
-WORKDIR  /AngularRestAPI
-COPY . .
-RUN npm i
-CMD ["npm", "run","prod"]
+FROM nginx:1.13.3-alpine
 
-# stage 2
-FROM nginx:1.17
-COPY nginx.conf /etc/nginx/nginx.conf
-WORKDIR /AngularRestAPI
-COPY --from=build /app/dist .
-EXPOSE 8080:8080
+## Copy our nginx config
+COPY nginx/ /etc/nginx/conf.d/
+
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+## copy over the artifacts in dist folder to default nginx public folder
+COPY dist/ /usr/share/nginx/html
+
+EXPOSE 8080
+
 CMD ["nginx", "-g", "daemon off;"]
-#COPY --from=node /AngularRestAPI/dist/angularrestapi /var/www/html
